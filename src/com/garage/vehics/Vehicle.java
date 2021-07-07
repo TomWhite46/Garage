@@ -11,7 +11,10 @@ public abstract class Vehicle {
 
 	public void travel(int distance) {
 		float time = (float) (distance) / (float) this.topSpeed;
-		System.out.print("You have arrived at your destination after ");
+		System.out.print("With your ");
+		System.out.print(toString().toLowerCase());
+		System.out.print(" " + getModel() + ", ");
+		System.out.print("you have arrived at your destination after ");
 		System.out.print(time);
 		System.out.println(" hours.");
 	}

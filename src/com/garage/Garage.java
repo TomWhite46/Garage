@@ -38,14 +38,17 @@ public class Garage {
 
 //	Remove vehicle by object
 	public void removeVehicle(Vehicle vehicle) {
-		System.out.println(vehicle.getModel() + " has been removed and destroyed.");
+		if (vehicle.toString().equals("Horse")) {
+			System.out.println(vehicle.getModel() + " has been taken out and shot. You monster.");
+		} else {
+			System.out.println(vehicle.getModel() + " has been removed and destroyed.");
+		}
 		vehicles.remove(vehicle);
 	}
 
 //	remove vehicle by ID (= index no)
 	public void removeVehicleByID(int ID) {
-		System.out.println(getVehicles().get(ID).getModel() + " has been removed and destroyed.");
-		getVehicles().remove(getVehicles().get(ID));
+		removeVehicle((getVehicles().get(ID)));
 	}
 
 //	remove all vehicles of specified type (using string input)
@@ -56,22 +59,26 @@ public class Garage {
 
 		for (Vehicle vehicle : vehicles) {
 			if (vehicle.toString().equals(typeName)) {
+				// commit each to remove list
 				removeList.add(vehicle);
 			}
 		}
 
 		if (removeList.size() == 0) {
+			// if none to remove, print message saying none of type found
 			System.out.println("\tNo " + typeName.toLowerCase() + "s in garage!");
 		} else {
 			for (Vehicle vehicle : removeList) {
-				System.out.println("\t" + vehicle.getModel() + " has been removed and destroyed.");
-				vehicles.remove(vehicle);
+				// loop through objects in remove list and remove from original list
+				System.out.print("\t");
+				removeVehicle(vehicle);
 			}
 		}
+
 	}
 
 	public void empty() {
-		vehicles = null;
+		vehicles.clear();
 		System.out.println("Garage has been emptied.");
 	}
 

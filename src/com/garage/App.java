@@ -19,8 +19,8 @@ public class App {
 
 		myGarage.getVehicles().get(1).travel(70);
 
-		myGarage.removeVehicleByID(1);
-		myGarage.removeVehicleByType("Horse");
+		myGarage.removeVehicleByID(3);
+		myGarage.removeVehicleByType("Aeroplane");
 		myGarage.removeVehicleByType("Motorbike");
 
 		System.out.println();
@@ -38,6 +38,10 @@ public class App {
 		System.out.println();
 
 		myGarage.listVehicles();
+
+		System.out.println();
+
+		myGarage.printBill();
 
 	}
 
