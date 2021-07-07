@@ -10,10 +10,10 @@ public abstract class Vehicle {
 	private String fuelType;
 
 	public void travel(int distance) {
-		int time = distance / this.topSpeed;
+		float time = (float) (distance) / (float) this.topSpeed;
 		System.out.print("You have arrived at your destination after ");
 		System.out.print(time);
-		System.out.print(" hours.");
+		System.out.println(" hours.");
 	}
 
 	public void printStats() {
@@ -31,7 +31,7 @@ public abstract class Vehicle {
 	}
 
 //	get bill for vehicle- defined at individual vehicles
-	public abstract int getBill();
+	public abstract float getBill();
 
 //	Strings
 	@Override

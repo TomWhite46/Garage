@@ -14,11 +14,11 @@ public class Car extends Vehicle {
 	}
 
 	@Override
-	public int getBill() {
+	public float getBill() {
 		if (getHasHeating()) {
-			return (getPrice() / 2);
+			return (float) getPrice() / 2;
 		} else {
-			return (getPrice() / 4);
+			return (float) getPrice() / 4;
 		}
 
 	}

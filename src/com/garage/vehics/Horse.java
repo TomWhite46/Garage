@@ -17,8 +17,8 @@ public class Horse extends Vehicle {
 	}
 
 	@Override
-	public int getBill() {
-		return getTopSpeed() * 10;
+	public float getBill() {
+		return (float) getTopSpeed() * 10;
 	}
 
 //	**********************GETTERS/SETTERS*********************

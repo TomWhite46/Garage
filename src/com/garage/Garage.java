@@ -12,19 +12,19 @@ public class Garage {
 	public void listVehicles() {
 
 		System.out.println("The contents of the garage are:");
-		System.out.println("---------------------");
 
 		if (vehicles == null || vehicles.size() == 0) {
 			System.out.println("The garage is empty!");
 		} else {
-
+			System.out.println("---------------------");
 			for (Vehicle vehicle : vehicles) {
 				System.out.print("Model: ");
 				System.out.println(vehicle.getModel());
-				System.out.print("Price: ");
+				System.out.print("Price: £");
 				System.out.println(vehicle.getPrice());
 				System.out.print("Top Speed: ");
-				System.out.println(vehicle.getTopSpeed());
+				System.out.print(vehicle.getTopSpeed());
+				System.out.println("mph");
 				System.out.println("---------------------");
 
 			}
@@ -42,7 +42,7 @@ public class Garage {
 		vehicles.remove(vehicle);
 	}
 
-//	remove vehicle by ID (= index num)
+//	remove vehicle by ID (= index no)
 	public void removeVehicleByID(int ID) {
 		System.out.println(getVehicles().get(ID).getModel() + " has been removed and destroyed.");
 		getVehicles().remove(getVehicles().get(ID));
@@ -61,7 +61,7 @@ public class Garage {
 		}
 
 		if (removeList.size() == 0) {
-			System.out.println("\tNo " + typeName + "s in garage!");
+			System.out.println("\tNo " + typeName.toLowerCase() + "s in garage!");
 		} else {
 			for (Vehicle vehicle : removeList) {
 				System.out.println("\t" + vehicle.getModel() + " has been removed and destroyed.");
@@ -76,22 +76,23 @@ public class Garage {
 	}
 
 //	********************FIXING AND BILLING***************************
-	public int fix(Vehicle vehicle) {
-		int bill;
+	public float fix(Vehicle vehicle) {
+		float bill;
 		bill = vehicle.getBill();
 		System.out.print("The bill for fixing " + vehicle.getModel() + " is: £");
-		System.out.println(bill);
+		System.out.println(((float) ((int) (bill * 100))) / 100);
+		;
 		return bill;
 	}
 
 	public String totalBill() {
-		int totalBill = 0;
+		float totalBill = 0;
 
 		for (Vehicle vehicle : vehicles) {
 			totalBill += fix(vehicle);
 		}
 
-		return "The total bill is: £" + totalBill;
+		return "The total bill is: £" + ((float) ((int) (totalBill * 100))) / 100;
 
 	}
 
@@ -99,7 +100,7 @@ public class Garage {
 		if (vehicles == null || vehicles.size() == 0) {
 			System.out.println("No bill: the garage is empty!");
 		} else {
-			System.out.print(totalBill());
+			System.out.println(totalBill());
 		}
 	}
 

@@ -13,11 +13,11 @@ public class Aeroplane extends Vehicle {
 	}
 
 	@Override
-	public int getBill() {
+	public float getBill() {
 		if (isHasJets()) {
-			return 10000 * getNumWings();
+			return 10000 * (float) getNumWings();
 		} else {
-			return getPrice() / 4;
+			return (float) getPrice() / 4;
 		}
 
 	}
